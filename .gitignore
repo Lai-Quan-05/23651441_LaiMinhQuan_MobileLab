@@ -1,0 +1,12 @@
+node_modules/
+.expo/
+dist/
+dist-android/
+coverage/
+*.log
+.env
+.env.local
+.env.*.local
+.DS_Store
+android/
+ios/
