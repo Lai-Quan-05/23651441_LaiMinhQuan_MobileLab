@@ -5,5 +5,18 @@
     "noUncheckedIndexedAccess": true,
     "types": ["node", "react", "react-native"]
   },
-  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"]
+  "include": ["**/*.ts", "**/*.tsx", ".expo/types/**/*.ts", "expo-env.d.ts"],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "dist-android",
+    "week1",
+    "week2",
+    "week3",
+    "week5",
+    "week6",
+    "week7",
+    "week8",
+    "week9"
+  ]
 }

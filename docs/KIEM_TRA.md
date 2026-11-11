@@ -1,45 +1,14 @@
-# Kết quả kiểm tra
+# Kiểm tra sau khi chép code
 
-Ngày kiểm tra: **11/11/2026**.
+Ngày: 11/11/2026.
 
-Môi trường: Windows, Node.js 22.22.3, Expo SDK 58.0.23, React Native 0.88.1, TypeScript 6.0.3.
+- Đã đối chiếu 97 file mã nguồn và ảnh: 91 file trùng bản gốc, 6 file chỉ thay thông tin sinh viên hoặc đường dẫn tuần 5.
+- Thông tin sinh viên: Lại Minh Quân, MSSV 23651441. Đã tìm lại trong mã các tuần, không còn tên/MSSV cũ. Email đăng nhập giả lập dùng 23651441@example.com.
+- TypeScript và lint của phần nối ứng dụng đạt; lint còn một cảnh báo biến catch không dùng trong App tuần 10 gốc.
+- Format đạt cho phần nối và tài liệu. Các thư mục code gốc không được tự định dạng, lint hoặc kiểm tra kiểu để giữ nguyên nội dung; chúng được kiểm tra qua đối chiếu bản sao và bundle.
+- Bundle web, Android và iOS thành công sau khi thay code.
+- Đã gỡ test của giỏ hàng và store tự viết vì các phần đó đã được thay bằng code gốc. Chưa chạy lại các test tiện ích API trong lượt này.
+- Chưa kiểm tra tương tác trên thiết bị hoặc gọi API thật. URL API được giữ như bản gốc.
+- Tuần 4 vẫn chờ đề. Tuần 2 và 3 dùng chung bài nhà sách theo nội dung đã có.
 
-| Kiểm tra               | Kết quả                                                                                |
-| ---------------------- | -------------------------------------------------------------------------------------- |
-| `npm run typecheck`    | Đạt, không có lỗi TypeScript.                                                          |
-| `npm run lint`         | Không có lỗi; có 1 cảnh báo biến catch không dùng trong code nguyên bản bài 1 tuần 10. |
-| `npm test`             | Đạt 18/18 bài kiểm thử của các phần còn lại.                                           |
-| `npm run format:check` | Đạt, định dạng code nhất quán.                                                         |
-| Export web             | Đạt, Metro bundle thành công vào `dist/`.                                              |
-| Export Android và iOS  | Đạt, Metro tạo bundle Hermes khi export toàn bộ nền tảng vào `dist/`.                  |
-
-Các bài kiểm thử bao gồm: thêm sách trùng, giới hạn số lượng, xóa giỏ, tính tiền từ catalogue, tách biệt counter/auth/cart, cập nhật giỏ xe bất biến, kiểm tra schema API, ngày lịch không hợp lệ, id trùng, nhóm tour, lỗi HTTP, phản hồi 204, hủy request, URL có query string và cập nhật yêu thích mẫu thành công/thất bại.
-
-Đã kiểm tra HTTP của server trung gian bằng phản hồi Mockaroo mô phỏng: lấy phim, xác nhận PUT, giữ yêu thích trong phiên server, body sai, tour không tồn tại, CORS và lỗi upstream. Server không đưa API key vào phản hồi.
-
-Lượt rà soát ban đầu đã đối chiếu 66 file dự án (không tính dependency, thư mục Git và sản phẩm build), parse 7 file JSON, kiểm tra 21 đường dẫn tài liệu cục bộ. Dependency trong `package.json` khớp lockfile. README giữ nguyên nội dung được yêu cầu.
-
-## Bổ sung tuần 10
-
-- Hai file App.tsx được chép nguyên nội dung từ hai Snack đã cung cấp, không thêm hoặc sửa logic/giao diện bên trong.
-- Đã gỡ bản triển khai tùy chỉnh và 9 tests tương ứng. Tuần 10 chỉ có phần nối để chọn và mở hai App.
-- TypeScript, lint, format và bundle web/Android/iOS đạt sau khi bổ sung tuần 10.
-- Kiểm thử tự động dùng phản hồi HTTP mô phỏng. Lượt kiểm tra HTTP trực tiếp tới JSONPlaceholder chưa chạy vì yêu cầu cấp quyền mạng bị từ chối.
-
-## Lỗi đã sửa trong lượt rà soát
-
-- HTTP 204 không còn gây lỗi đọc JSON sau khi cập nhật thành công.
-- URL cập nhật yêu thích giữ query string và hỗ trợ route riêng có `:id.json`.
-- Phim ngừng request khi rời màn hình và chặn tải lại trùng lặp.
-- Schema từ chối chuỗi rỗng, năm không hợp lệ và ngày không tồn tại như 31/02.
-- Giỏ xe từ chối id không có trong catalogue; các nút thêm sản phẩm khóa khi đạt giới hạn 99.
-- Tích hợp Mockaroo qua server giữ khóa riêng, với handler GET/PUT được chuẩn bị tại `mockaroo/`.
-
-## Giới hạn đã xác định
-
-- Chưa kiểm tra thao tác tương tác hoặc bố cục trên trình duyệt/điện thoại/emulator. Công cụ truy cập trình duyệt trong phiên làm việc báo không kết nối được browser host.
-- Chưa xác nhận tạo route trên tài khoản Mockaroo hoặc kết nối dịch vụ thật. Công cụ không truy cập được phiên trình duyệt để kiểm tra tài khoản. Xem [MOCKAROO.md](MOCKAROO.md).
-- Bundle Android thành công không thay thế cho chạy trên thiết bị và không tạo APK.
-- Tuần 4 đang chờ đề bài.
-
-Các bước kiểm tra trực tiếp được ghi trong [TU_KIEM_TRA.md](TU_KIEM_TRA.md).
+README gốc của repo giữ nguyên câu được yêu cầu. Bộ công cụ Mockaroo được giữ riêng, chưa gắn vào các App gốc.

@@ -11,7 +11,12 @@ const weeks = [
     path: '/week1',
   },
   { week: 2, title: 'Góc sách của bạn', topic: 'Components & bố cục nhà sách', path: '/week2' },
-  { week: 3, title: 'Khám phá thư viện', topic: 'Tìm kiếm, thể loại & lưới sách', path: '/week3' },
+  {
+    week: 3,
+    title: 'Khám phá thư viện',
+    topic: 'Giao diện nhà sách · CategoryChips & BookGrid',
+    path: '/week3',
+  },
   { week: 4, title: 'Chờ đề bài', topic: 'Chưa có nội dung bài tập' },
   {
     week: 5,
@@ -23,7 +28,7 @@ const weeks = [
   {
     week: 7,
     title: 'Đi xa hơn cùng xe đạp',
-    topic: 'Danh mục, chi tiết & giỏ hàng',
+    topic: 'Ba màn hình Bike Shop',
     path: '/week7',
   },
   { week: 8, title: 'Một chuyến đi mới', topic: 'SectionList & cập nhật lạc quan', path: '/week8' },
@@ -95,7 +100,6 @@ export default function Home() {
             </View>
           ),
         )}
-        <Text style={s.muted}>Các bài phim, sách và tour dùng dữ liệu hư cấu để thực hành.</Text>
       </Page>
     </SafeAreaView>
   );

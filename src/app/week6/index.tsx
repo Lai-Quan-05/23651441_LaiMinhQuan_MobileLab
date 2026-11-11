@@ -1,10 +1,12 @@
 import { Stack } from 'expo-router';
-import Movies from '../../../week6/Movies';
-export default function Week6() {
+import type { ComponentType } from 'react';
+const App = require('../../../week6/App').default as ComponentType;
+
+export default function Week6Route() {
   return (
     <>
       <Stack.Screen options={{ title: 'Tuần 6 · Movie App' }} />
-      <Movies />
+      <App />
     </>
   );
 }
