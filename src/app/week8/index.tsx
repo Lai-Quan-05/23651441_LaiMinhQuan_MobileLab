@@ -1,5 +1,5 @@
 import { Stack } from 'expo-router';
-import Tours from '../weeks/week8/Tours';
+import Tours from '../../../week8/Tours';
 export default function Week8() {
   return (
     <>

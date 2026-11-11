@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Text } from 'react-native';
 import { Button, Card, Input, Intro, Page, s } from '../../components/ui';
-import { useAppDispatch, useAppSelector } from '../../weeks/week9/hooks';
-import { signIn, signOut } from '../../weeks/week9/store';
+import { useAppDispatch, useAppSelector } from '../../../week9/hooks';
+import { signIn, signOut } from '../../../week9/store';
 export default function Profile() {
   const user = useAppSelector((state) => state.auth.user);
   const dispatch = useAppDispatch();

@@ -2,9 +2,9 @@ import { Stack, router, useLocalSearchParams } from 'expo-router';
 import { Text } from 'react-native';
 import { Button, Card, Intro, Page, s } from '../../components/ui';
 import { books, money } from '../../data/catalog';
-import { BookCover } from '../../weeks/bookstore/Bookstore';
-import { useAppDispatch } from '../../weeks/week9/hooks';
-import { addBook } from '../../weeks/week9/store';
+import { BookCover } from '../../components/books/Bookstore';
+import { useAppDispatch } from '../../../week9/hooks';
+import { addBook } from '../../../week9/store';
 export default function BookDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const book = books.find((item) => item.id === id);

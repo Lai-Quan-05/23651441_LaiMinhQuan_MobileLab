@@ -9,8 +9,8 @@ import {
   Text,
   View,
 } from 'react-native';
-import { Button, Card, Empty, Intro, Page, colors, s } from '../../components/ui';
-import { errorMessage, getMovies, movieEndpoint, type Movie } from '../../data/api';
+import { Button, Card, Empty, Intro, Page, colors, s } from '../src/components/ui';
+import { errorMessage, getMovies, movieEndpoint, type Movie } from '../src/data/api';
 
 export default function Movies() {
   const [movies, setMovies] = useState<Movie[]>([]);

@@ -2,7 +2,7 @@ import { router } from 'expo-router';
 import { Text, View } from 'react-native';
 import { Button, Card, Empty, Intro, Page, s } from '../../components/ui';
 import { money } from '../../data/catalog';
-import { useAppDispatch, useAppSelector } from '../../weeks/week9/hooks';
+import { useAppDispatch, useAppSelector } from '../../../week9/hooks';
 import {
   changeQuantity,
   clearCart,
@@ -10,7 +10,7 @@ import {
   selectCart,
   selectCartCount,
   selectCartTotal,
-} from '../../weeks/week9/store';
+} from '../../../week9/store';
 export default function ReduxCart() {
   const lines = useAppSelector(selectCart);
   const count = useAppSelector(selectCartCount);

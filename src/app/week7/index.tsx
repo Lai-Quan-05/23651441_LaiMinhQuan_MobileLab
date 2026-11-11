@@ -1,7 +1,7 @@
 import { Stack, router } from 'expo-router';
 import { Text } from 'react-native';
 import { Button, Card, Intro, Page, s } from '../../components/ui';
-import BikeArt from '../../weeks/week7/BikeArt';
+import BikeArt from '../../../week7/BikeArt';
 export default function BikeWelcome() {
   return (
     <Page>

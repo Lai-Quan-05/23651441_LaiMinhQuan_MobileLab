@@ -2,7 +2,7 @@ import { Stack, router, useLocalSearchParams } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { Button, Intro, Page, colors, s } from '../../components/ui';
-import { findColor, phoneColors } from '../../weeks/week5/phone';
+import { findColor, phoneColors } from '../../../week5/phone';
 
 export default function ChooseColor() {
   const params = useLocalSearchParams<{ selected?: string }>();

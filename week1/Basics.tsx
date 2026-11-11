@@ -1,6 +1,6 @@
 import { useEffect, useState, type PropsWithChildren } from 'react';
 import { ActivityIndicator, Pressable, Switch, Text, View } from 'react-native';
-import { Button, Card, Chip, Input, Intro, Page, s } from '../../components/ui';
+import { Button, Card, Chip, Input, Intro, Page, s } from '../src/components/ui';
 
 export function UserCard({ name, age, isAdmin }: { name: string; age: number; isAdmin: boolean }) {
   return (

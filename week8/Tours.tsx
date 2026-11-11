@@ -9,7 +9,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import { Button, Card, Empty, Input, Intro, Page, colors, s } from '../../components/ui';
+import { Button, Card, Empty, Input, Intro, Page, colors, s } from '../src/components/ui';
 import {
   errorMessage,
   getTours,
@@ -17,8 +17,8 @@ import {
   saveFavorite,
   tourEndpoint,
   type Tour,
-} from '../../data/api';
-import { money } from '../../data/catalog';
+} from '../src/data/api';
+import { money } from '../src/data/catalog';
 
 function TourCard({
   tour,

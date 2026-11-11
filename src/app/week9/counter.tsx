@@ -1,7 +1,7 @@
 import { Text, View } from 'react-native';
 import { Button, Card, Intro, Page, s } from '../../components/ui';
-import { useAppDispatch, useAppSelector } from '../../weeks/week9/hooks';
-import { decrement, increment, resetCounter } from '../../weeks/week9/store';
+import { useAppDispatch, useAppSelector } from '../../../week9/hooks';
+import { decrement, increment, resetCounter } from '../../../week9/store';
 export default function ReduxCounter() {
   const value = useAppSelector((state) => state.counter.value);
   const dispatch = useAppDispatch();

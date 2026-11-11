@@ -19,6 +19,6 @@ Các bài kiểm thử bao gồm: thêm sách trùng, giới hạn số lượng
 - Chưa kiểm tra thao tác tương tác hoặc bố cục trên trình duyệt/điện thoại/emulator. Công cụ truy cập trình duyệt trong phiên làm việc báo không kết nối được browser host.
 - Chưa có endpoint của người học để kiểm tra HTTP thật. Đã kiểm tra helper HTTP bằng response mô phỏng và luồng dữ liệu mẫu bằng test.
 - Bundle Android thành công không thay thế cho chạy trên thiết bị và không tạo APK.
-- Chưa có đề chính thức để xác nhận tiêu chí giao diện hoặc cách chia tuần 2–3. Tuần 4, 10 chờ đề theo lựa chọn người học.
+- Tuần 4 và tuần 10 đang chờ đề bài.
 
 Các bước kiểm tra trực tiếp được ghi trong [TU_KIEM_TRA.md](TU_KIEM_TRA.md).

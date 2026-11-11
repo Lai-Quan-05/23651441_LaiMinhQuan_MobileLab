@@ -2,7 +2,7 @@ import { Stack, router } from 'expo-router';
 import { Text, View } from 'react-native';
 import { Button, Card, Empty, Intro, Page, s } from '../../components/ui';
 import { bikes, money } from '../../data/catalog';
-import { useBikeCart } from '../../weeks/week7/cart';
+import { useBikeCart } from '../../../week7/cart';
 export default function BikeBasket() {
   const { items, dispatch } = useBikeCart();
   const selected = bikes.filter((bike) => (items[bike.id] ?? 0) > 0);

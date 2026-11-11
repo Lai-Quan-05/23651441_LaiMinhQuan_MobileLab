@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Text } from 'react-native';
 import { Button, Card, Intro, Page, s } from '../../components/ui';
 import { bikes, money } from '../../data/catalog';
-import BikeArt from '../../weeks/week7/BikeArt';
-import { useBikeCart } from '../../weeks/week7/cart';
+import BikeArt from '../../../week7/BikeArt';
+import { useBikeCart } from '../../../week7/cart';
 export default function BikeDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const bike = bikes.find((item) => item.id === id);

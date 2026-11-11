@@ -2,7 +2,7 @@
 
 ## Tuần 1 — component, props, state và effect
 
-Mở [Basics.tsx](../src/weeks/week1/Basics.tsx).
+Mở [Basics.tsx](../week1/Basics.tsx).
 
 1. `UserCard` nhận `name`, `age`, `isAdmin` qua props. `isAdmin && ...` chỉ hiện phần quản trị khi điều kiện đúng.
 2. Counter dùng `useState`. `setCount(n => n + 1)` lấy giá trị trước đó, hữu ích khi nhiều lần cập nhật được gom lại.
@@ -17,7 +17,7 @@ Tự giải thích: Vì sao cần `key` cho danh sách? Vì sao cleanup timer? V
 
 ## Tuần 2 — chia component và bố cục
 
-Mở [Bookstore.tsx](../src/weeks/bookstore/Bookstore.tsx).
+Mở [Bookstore.tsx](../src/components/books/Bookstore.tsx).
 
 `BookCover` nhận một cuốn sách. `BookCard` kết hợp bìa với tên, tác giả, thể loại và giá. Cùng một component render nhiều cuốn nhờ props. `flexDirection: 'row'` xếp bìa và thông tin ngang; `flex: 1` cho phần thông tin chiếm khoảng trống còn lại.
 
@@ -41,7 +41,7 @@ Tự thử: Mở `/week5?color=red`, sau đó `/week5?color=invalid` trên web. 
 
 ## Tuần 6 — bất đồng bộ và trạng thái tải
 
-Mở [Movies.tsx](../src/weeks/week6/Movies.tsx) và [api.ts](../src/data/api.ts).
+Mở [Movies.tsx](../week6/Movies.tsx) và [api.ts](../src/data/api.ts).
 
 Khởi tạo gọi dữ liệu trong effect; callback chỉ cập nhật state khi màn hình còn hoạt động. Người dùng tải lại qua nút hoặc kéo danh sách. `loading` dùng cho tải đầu, `refreshing` dùng cho tải lại. Lỗi được giữ riêng với dữ liệu, nên tải lại thất bại vẫn xem được kết quả cũ.
 
@@ -53,7 +53,7 @@ Tự giải thích: Vì sao HTTP 404 không tự làm `fetch` reject? Vì sao c�
 
 Luồng: Welcome → Catalog → Detail → Cart. Route động `[id]` nhận mã xe từ danh mục. Nếu id sai, hiện màn hình không tìm thấy.
 
-[BikeCartProvider](../src/weeks/week7/cart.tsx) dùng Context để chia sẻ state cho các màn hình. [Reducer](../src/weeks/week7/cartReducer.ts) quản lý add/change/clear; thêm lại một xe sẽ tăng số lượng. Tổng tiền được suy ra từ catalogue và số lượng.
+[BikeCartProvider](../week7/cart.tsx) dùng Context để chia sẻ state cho các màn hình. [Reducer](../week7/cartReducer.ts) quản lý add/change/clear; thêm lại một xe sẽ tăng số lượng. Tổng tiền được suy ra từ catalogue và số lượng.
 
 Tự giải thích: Nếu đặt state giỏ hàng trong mỗi trang, chuyện gì xảy ra khi chuyển từ catalog sang cart?
 
@@ -67,7 +67,7 @@ Tự giải thích: Vì sao khôi phục toàn bộ mảng tour cũ có thể l�
 
 ## Tuần 9 — Redux Toolkit
 
-Mở [store.ts](../src/weeks/week9/store.ts).
+Mở [store.ts](../week9/store.ts).
 
 - Store có ba nhánh: `cart`, `counter`, `auth`.
 - `createSlice` tạo reducer và action creators. Cú pháp sửa state trong slice được Immer xử lý để tạo cập nhật bất biến.

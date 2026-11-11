@@ -3,9 +3,9 @@ import { useState } from 'react';
 import { Text, View } from 'react-native';
 import { Button, Card, Input, Intro, Page, s } from '../../components/ui';
 import { books, money } from '../../data/catalog';
-import { BookCover } from '../../weeks/bookstore/Bookstore';
-import { useAppDispatch, useAppSelector } from '../../weeks/week9/hooks';
-import { addBook, selectCartCount } from '../../weeks/week9/store';
+import { BookCover } from '../../components/books/Bookstore';
+import { useAppDispatch, useAppSelector } from '../../../week9/hooks';
+import { addBook, selectCartCount } from '../../../week9/store';
 export default function ReduxBooks() {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCartCount);

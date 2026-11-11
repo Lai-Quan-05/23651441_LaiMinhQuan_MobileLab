@@ -12,7 +12,7 @@ const weeks = [
   },
   { week: 2, title: 'Góc sách của bạn', topic: 'Components & bố cục nhà sách', path: '/week2' },
   { week: 3, title: 'Khám phá thư viện', topic: 'Tìm kiếm, thể loại & lưới sách', path: '/week3' },
-  { week: 4, title: 'Chờ đề bài', topic: 'Chưa có nội dung trong repo tham khảo' },
+  { week: 4, title: 'Chờ đề bài', topic: 'Chưa có nội dung bài tập' },
   {
     week: 5,
     title: 'Một chiếc điện thoại, bốn màu',
@@ -33,7 +33,7 @@ const weeks = [
     topic: 'Counter, tài khoản & giỏ hàng sách',
     path: '/week9',
   },
-  { week: 10, title: 'Chờ đề bài', topic: 'Chưa có nội dung trong repo tham khảo' },
+  { week: 10, title: 'Chờ đề bài', topic: 'Chưa có nội dung bài tập' },
 ] as const;
 
 export default function Home() {
@@ -84,10 +84,7 @@ export default function Home() {
             </View>
           ),
         )}
-        <Text style={s.muted}>
-          Tuần 2–3 được tách từ một bài nhà sách trong nguồn tham khảo. Các bài phim, sách và tour
-          dùng dữ liệu hư cấu để thực hành.
-        </Text>
+        <Text style={s.muted}>Các bài phim, sách và tour dùng dữ liệu hư cấu để thực hành.</Text>
       </Page>
     </SafeAreaView>
   );

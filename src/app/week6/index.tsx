@@ -1,5 +1,5 @@
 import { Stack } from 'expo-router';
-import Movies from '../weeks/week6/Movies';
+import Movies from '../../../week6/Movies';
 export default function Week6() {
   return (
     <>

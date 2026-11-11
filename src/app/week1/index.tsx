@@ -1,5 +1,5 @@
 import { Stack } from 'expo-router';
-import Basics from '../weeks/week1/Basics';
+import Basics from '../../../week1/Basics';
 export default function Week1() {
   return (
     <>

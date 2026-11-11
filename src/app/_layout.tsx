@@ -3,8 +3,8 @@ import { StatusBar } from 'expo-status-bar';
 import { Provider } from 'react-redux';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { colors } from '../components/ui';
-import { store } from '../weeks/week9/store';
-import { BikeCartProvider } from '../weeks/week7/cart';
+import { store } from '../../week9/store';
+import { BikeCartProvider } from '../../week7/cart';
 
 export default function RootLayout() {
   return (

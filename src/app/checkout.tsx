@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Text } from 'react-native';
 import { Button, Card, Empty, Input, Intro, Page, s } from '../components/ui';
 import { money } from '../data/catalog';
-import { useAppDispatch, useAppSelector } from '../weeks/week9/hooks';
-import { clearCart, selectCartCount, selectCartTotal } from '../weeks/week9/store';
+import { useAppDispatch, useAppSelector } from '../../week9/hooks';
+import { clearCart, selectCartCount, selectCartTotal } from '../../week9/store';
 
 export default function Checkout() {
   const total = useAppSelector(selectCartTotal);

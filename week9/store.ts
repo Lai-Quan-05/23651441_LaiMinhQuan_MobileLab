@@ -1,5 +1,5 @@
 import { configureStore, createSelector, createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { books, type Book } from '../../data/catalog';
+import { books, type Book } from '../src/data/catalog';
 
 type CartLine = { bookId: string; quantity: number };
 export type CartState = { lines: CartLine[] };

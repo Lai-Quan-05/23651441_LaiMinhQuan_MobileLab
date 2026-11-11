@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
 import { books } from '../src/data/catalog';
-import { bikeCartReducer } from '../src/weeks/week7/cartReducer';
+import { bikeCartReducer } from '../week7/cartReducer';
 import {
   addBook,
   changeQuantity,
@@ -13,7 +13,7 @@ import {
   selectCartTotal,
   signIn,
   signOut,
-} from '../src/weeks/week9/store';
+} from '../week9/store';
 
 test('thêm cùng sách tăng số lượng, không tạo dòng trùng; tổng tiền dùng giá catalogue', () => {
   const store = createLabStore();

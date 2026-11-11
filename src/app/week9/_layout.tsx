@@ -1,8 +1,8 @@
 import { Tabs } from 'expo-router';
 import { Text } from 'react-native';
 import { colors } from '../../components/ui';
-import { useAppSelector } from '../../weeks/week9/hooks';
-import { selectCartCount } from '../../weeks/week9/store';
+import { useAppSelector } from '../../../week9/hooks';
+import { selectCartCount } from '../../../week9/store';
 export default function ReduxTabs() {
   const count = useAppSelector(selectCartCount);
   return (

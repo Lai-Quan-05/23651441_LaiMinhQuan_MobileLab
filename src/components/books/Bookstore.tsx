@@ -1,6 +1,6 @@
 import { useMemo, useState } from 'react';
 import { FlatList, Text, View } from 'react-native';
-import { Button, Card, Chip, Empty, Input, Intro, Page, colors, s } from '../../components/ui';
+import { Button, Card, Chip, Empty, Input, Intro, Page, colors, s } from '../ui';
 import { books, money, type Book } from '../../data/catalog';
 
 export function BookCover({ book, large = false }: { book: Book; large?: boolean }) {

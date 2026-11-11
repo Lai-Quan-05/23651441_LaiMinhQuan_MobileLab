@@ -3,8 +3,8 @@ import { useState } from 'react';
 import { Text, View } from 'react-native';
 import { Button, Card, Chip, Intro, Page, s } from '../../components/ui';
 import { bikes, money } from '../../data/catalog';
-import BikeArt from '../../weeks/week7/BikeArt';
-import { useBikeCart } from '../../weeks/week7/cart';
+import BikeArt from '../../../week7/BikeArt';
+import { useBikeCart } from '../../../week7/cart';
 export default function BikeCatalog() {
   const [kind, setKind] = useState('Tất cả');
   const { items } = useBikeCart();
