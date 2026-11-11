@@ -77,4 +77,4 @@ Khi chạy web, API cần cho phép CORS cho GET và PUT với `Content-Type: ap
 
 Tuần 10 gọi `https://jsonplaceholder.typicode.com/posts` theo hai bài thực hành createAsyncThunk: GET lấy 10 bài, POST thêm, PUT sửa và DELETE xóa. Không cần API key. Xem [week10/README.md](../week10/README.md) để biết cấu trúc hai bài và cách xử lý dữ liệu giả lập.
 
-JSONPlaceholder trả phản hồi ghi dữ liệu giả lập, không lưu thay đổi thật. Bài mới từ POST được sửa/xóa tại máy, bài gốc từ GET dùng PUT/DELETE qua HTTP. [Tài liệu JSONPlaceholder](https://jsonplaceholder.typicode.com/).
+JSONPlaceholder trả phản hồi ghi dữ liệu giả lập, không lưu thay đổi thật. Các thao tác giữ nguyên theo code hai bài đã cung cấp. [Tài liệu JSONPlaceholder](https://jsonplaceholder.typicode.com/).

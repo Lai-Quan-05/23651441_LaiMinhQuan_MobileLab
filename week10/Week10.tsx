@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { View } from 'react-native';
 import { Chip, Intro, Page, s } from '../src/components/ui';
-import CreateAsyncThunkScreen from './create_async_thunk/Screen';
-import CrudPostsScreen from './crud_createasyncthunk_run/Screen';
+import CreateAsyncThunkScreen from './create_async_thunk/App';
+import CrudPostsScreen from './crud_createasyncthunk_run/App';
 
 export default function Week10() {
   const [lesson, setLesson] = useState<1 | 2>(1);

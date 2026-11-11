@@ -4,14 +4,14 @@ Ngày kiểm tra: **11/11/2026**.
 
 Môi trường: Windows, Node.js 22.22.3, Expo SDK 58.0.23, React Native 0.88.1, TypeScript 6.0.3.
 
-| Kiểm tra               | Kết quả                                                               |
-| ---------------------- | --------------------------------------------------------------------- |
-| `npm run typecheck`    | Đạt, không có lỗi TypeScript.                                         |
-| `npm run lint`         | Đạt, không có lỗi hoặc cảnh báo lint.                                 |
-| `npm test`             | Đạt 27/27 bài kiểm thử.                                               |
-| `npm run format:check` | Đạt, định dạng code nhất quán.                                        |
-| Export web             | Đạt, Metro bundle thành công vào `dist/`.                             |
-| Export Android và iOS  | Đạt, Metro tạo bundle Hermes khi export toàn bộ nền tảng vào `dist/`. |
+| Kiểm tra               | Kết quả                                                                                |
+| ---------------------- | -------------------------------------------------------------------------------------- |
+| `npm run typecheck`    | Đạt, không có lỗi TypeScript.                                                          |
+| `npm run lint`         | Không có lỗi; có 1 cảnh báo biến catch không dùng trong code nguyên bản bài 1 tuần 10. |
+| `npm test`             | Đạt 18/18 bài kiểm thử của các phần còn lại.                                           |
+| `npm run format:check` | Đạt, định dạng code nhất quán.                                                         |
+| Export web             | Đạt, Metro bundle thành công vào `dist/`.                                              |
+| Export Android và iOS  | Đạt, Metro tạo bundle Hermes khi export toàn bộ nền tảng vào `dist/`.                  |
 
 Các bài kiểm thử bao gồm: thêm sách trùng, giới hạn số lượng, xóa giỏ, tính tiền từ catalogue, tách biệt counter/auth/cart, cập nhật giỏ xe bất biến, kiểm tra schema API, ngày lịch không hợp lệ, id trùng, nhóm tour, lỗi HTTP, phản hồi 204, hủy request, URL có query string và cập nhật yêu thích mẫu thành công/thất bại.
 
@@ -21,8 +21,8 @@ Lượt rà soát ban đầu đã đối chiếu 66 file dự án (không tính 
 
 ## Bổ sung tuần 10
 
-- Đã triển khai hai bài: POST bằng createAsyncThunk và CRUD bài viết bằng GET/POST/PUT/DELETE.
-- Có thêm 9 tests cho pending/fulfilled/rejected, unwrap, chống gửi trùng, id POST trùng, deletingId, lỗi GET/PUT/DELETE và schema bài viết.
+- Hai file App.tsx được chép nguyên nội dung từ hai Snack đã cung cấp, không thêm hoặc sửa logic/giao diện bên trong.
+- Đã gỡ bản triển khai tùy chỉnh và 9 tests tương ứng. Tuần 10 chỉ có phần nối để chọn và mở hai App.
 - TypeScript, lint, format và bundle web/Android/iOS đạt sau khi bổ sung tuần 10.
 - Kiểm thử tự động dùng phản hồi HTTP mô phỏng. Lượt kiểm tra HTTP trực tiếp tới JSONPlaceholder chưa chạy vì yêu cầu cấp quyền mạng bị từ chối.
 

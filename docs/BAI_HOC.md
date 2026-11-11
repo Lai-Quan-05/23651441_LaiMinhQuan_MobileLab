@@ -83,14 +83,14 @@ Tự thử: Thêm cùng sách hai lần, đổi tab, tăng counter, quay về gi
 
 ## Tuần 10 — createAsyncThunk và CRUD
 
-Mở [hướng dẫn hai bài](../week10/README.md), [slice thêm bài](../week10/create_async_thunk/slice.ts) và [slice CRUD](../week10/crud_createasyncthunk_run/slice.ts).
+Mở [bài thêm bài viết](../week10/create_async_thunk/App.tsx) và [bài CRUD](../week10/crud_createasyncthunk_run/App.tsx).
 
 `createAsyncThunk` tạo ba action theo vòng đời bất đồng bộ: `pending` khi bắt đầu, `fulfilled` khi thành công, `rejected` khi thất bại. `extraReducers` cập nhật loading, dữ liệu và thông báo lỗi tương ứng.
 
-Payload creator nhận `signal` để truyền vào fetch. `rejectWithValue(message)` đưa lỗi có kiểm soát vào `action.payload`. Ở component, `.unwrap()` trả kết quả hoặc ném lỗi để form chỉ được xóa khi lưu thành công.
+Ở bài 1, `rejectWithValue(message)` đưa lỗi vào `action.payload`. Component dùng `.unwrap()` để chỉ xóa form sau khi thêm thành công.
 
-Bài 1 chỉ POST và thêm kết quả vào đầu mảng bằng `unshift`. Bài 2 có GET/POST/PUT/DELETE, form thêm hoặc sửa và `deletingId` xác định đúng dòng đang xóa. `condition` ngăn gửi thao tác trùng khi request đang chạy.
+Bài 1 chỉ POST và thêm kết quả vào đầu mảng bằng `unshift`. Bài 2 có GET/POST/PUT/DELETE, form thêm hoặc sửa và `deletingId` xác định id đang xóa. Mỗi file App.tsx có store và Provider riêng như code đã cung cấp.
 
-JSONPlaceholder không lưu thay đổi thật. Id trả về từ POST có thể trùng `101`, nên mỗi kết quả có key từ `requestId`. Các bài mới được sửa/xóa tại máy; bài gốc từ GET vẫn gọi PUT/DELETE. Nút tải lại dữ liệu gốc sẽ đặt lại danh sách CRUD.
+Hai file App.tsx được giữ nguyên nội dung code từ hai bài đã cung cấp. Phần chọn bài chỉ dùng để mở chúng trong ứng dụng chung.
 
-Tự giải thích: Vì sao cần `.unwrap()` nếu dispatch thunk luôn trả về một Promise? Vì sao không dùng riêng id API `101` làm key? Vì sao dữ liệu chỉ được xóa sau action fulfilled?
+Tự giải thích: Vai trò của pending, fulfilled và rejected là gì? `.unwrap()` dùng để làm gì? `deletingId` được cập nhật khi nào?

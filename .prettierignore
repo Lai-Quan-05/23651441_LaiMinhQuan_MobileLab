@@ -3,3 +3,5 @@ node_modules
 dist
 dist-android
 package-lock.json
+week10/create_async_thunk/App.tsx
+week10/crud_createasyncthunk_run/App.tsx

@@ -67,11 +67,9 @@ Các bước dưới đây là hướng dẫn kiểm tra thủ công. Kết qu�
 
 ## Tuần 10
 
-- Bài 1: nhập tiêu đề và nội dung, thêm hai lần. Kết quả mới nằm đầu danh sách; hai bài được giữ riêng dù cùng id API `101`.
+- Bài 1: nhập tiêu đề và nội dung rồi thêm bài; kết quả mới nằm đầu danh sách.
 - Trong lúc gửi, nút lưu bị khóa. API lỗi thì báo lỗi và giữ form để thử lại.
 - Bài 2: tải 10 bài, chọn một bài có sẵn để sửa, hủy sửa rồi sửa thành công.
 - Xóa một bài có sẵn: chỉ dòng đó hiển thị “Đang xóa...”; thất bại thì dòng vẫn còn và nút được mở khóa.
-- Thêm hai bài mới, sửa một bài và xóa bài còn lại: không thao tác nhầm do trùng id API.
-- Bài mới từ POST được sửa/xóa tại máy, còn bài gốc từ GET dùng PUT/DELETE qua API.
-- Tải lại dữ liệu gốc: danh sách CRUD trở về dữ liệu API.
-- Chuyển qua lại hai bài: dữ liệu của mỗi bài độc lập, không mất khi đổi bài trong cùng phiên.
+- Các thao tác POST/PUT/DELETE giữ nguyên cách gọi API của code hai bài đã cung cấp.
+- Chuyển qua lại hai bài: mỗi bài dùng store riêng.
