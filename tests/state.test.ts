@@ -62,4 +62,5 @@ test('giỏ xe không sửa state đầu vào, cộng dồn và xóa khi giảm 
   assert.deepEqual(added, { r1: 2 });
   assert.deepEqual(bikeCartReducer(added, { type: 'change', id: 'r1', quantity: -1 }), {});
   assert.deepEqual(bikeCartReducer(added, { type: 'change', id: 'r1', quantity: Infinity }), added);
+  assert.deepEqual(bikeCartReducer(initial, { type: 'add', id: 'khong-ton-tai' }), initial);
 });

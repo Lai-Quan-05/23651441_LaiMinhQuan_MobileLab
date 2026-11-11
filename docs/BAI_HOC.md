@@ -45,7 +45,7 @@ Mở [Movies.tsx](../week6/Movies.tsx) và [api.ts](../src/data/api.ts).
 
 Khởi tạo gọi dữ liệu trong effect; callback chỉ cập nhật state khi màn hình còn hoạt động. Người dùng tải lại qua nút hoặc kéo danh sách. `loading` dùng cho tải đầu, `refreshing` dùng cho tải lại. Lỗi được giữ riêng với dữ liệu, nên tải lại thất bại vẫn xem được kết quả cũ.
 
-`requestJson` kiểm tra `response.ok`, hủy kết nối sau 12 giây và đọc JSON. `parseMovies` kiểm tra dữ liệu trước khi dùng trong UI. Chế độ mẫu đi qua nhánh bất đồng bộ với độ trễ, chế độ HTTP gọi `fetch`.
+`requestJson` kiểm tra `response.ok`, hủy kết nối sau 12 giây và đọc JSON. HTTP 204 được chấp nhận cho thao tác cập nhật. `AbortSignal` hủy request khi rời màn hình phim. `parseMovies` kiểm tra dữ liệu trước khi dùng trong UI. Chế độ mẫu đi qua nhánh bất đồng bộ với độ trễ, chế độ HTTP gọi `fetch`.
 
 Tự giải thích: Vì sao HTTP 404 không tự làm `fetch` reject? Vì sao cần kiểm tra schema dù đã khai báo kiểu TypeScript?
 
@@ -62,6 +62,8 @@ Tự giải thích: Nếu đặt state giỏ hàng trong mỗi trang, chuyện g
 `useMemo` lọc tour theo tên, sau đó `groupTours` tạo các section `{title, data}` theo thành phố. Danh sách yêu thích ngang nằm trong header, không bị bộ lọc tên làm mất các tour đã thích.
 
 Khi yêu thích, UI cập nhật trước khi API trả lời. Trong lúc chờ, khóa thao tác lặp trên cùng tour. Nếu lỗi, khôi phục giá trị cũ **chỉ cho id thất bại**, tránh ghi đè cập nhật thành công của tour khác. Công tắc mô phỏng lỗi giúp quan sát quá trình này.
+
+Khi dùng [Mockaroo](MOCKAROO.md), API key ở server trung gian. Mockaroo trả xác nhận giả lập, server giữ thay đổi yêu thích trong bộ nhớ cho đến khi server khởi động lại.
 
 Tự giải thích: Vì sao khôi phục toàn bộ mảng tour cũ có thể làm mất thay đổi của người dùng?
 

@@ -1,3 +1,5 @@
+import { bikes } from '../src/data/catalog';
+
 export type BikeCart = Record<string, number>;
 export type BikeCartAction =
   | { type: 'add'; id: string }
@@ -5,6 +7,7 @@ export type BikeCartAction =
   | { type: 'clear' };
 export function bikeCartReducer(state: BikeCart, action: BikeCartAction): BikeCart {
   if (action.type === 'clear') return {};
+  if (!bikes.some((bike) => bike.id === action.id)) return state;
   if (action.type === 'add')
     return { ...state, [action.id]: Math.min((state[action.id] ?? 0) + 1, 99) };
   if (!Number.isFinite(action.quantity)) return state;

@@ -96,7 +96,8 @@ export default function Tours() {
     life.mounted = true;
     life.busy = true;
     const id = ++life.sequence;
-    void getTours()
+    const controller = new AbortController();
+    void getTours(controller.signal)
       .then((data) => {
         if (life.mounted && id === life.sequence) setTours(data);
       })
@@ -113,6 +114,7 @@ export default function Tours() {
       life.mounted = false;
       life.sequence++;
       life.busy = false;
+      controller.abort();
     };
   }, []);
   const toggle = async (tour: Tour) => {

@@ -3,12 +3,15 @@ import { Text } from 'react-native';
 import { Button, Card, Intro, Page, s } from '../../components/ui';
 import { books, money } from '../../data/catalog';
 import { BookCover } from '../../components/books/Bookstore';
-import { useAppDispatch } from '../../../week9/hooks';
+import { useAppDispatch, useAppSelector } from '../../../week9/hooks';
 import { addBook } from '../../../week9/store';
 export default function BookDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const book = books.find((item) => item.id === id);
   const dispatch = useAppDispatch();
+  const quantity = useAppSelector(
+    (state) => state.cart.lines.find((line) => line.bookId === id)?.quantity ?? 0,
+  );
   if (!book)
     return (
       <Page>
@@ -29,6 +32,7 @@ export default function BookDetail() {
         </Text>
         <Button
           title="Thêm vào giỏ và xem giỏ"
+          disabled={quantity >= 99}
           onPress={() => {
             dispatch(addBook(book.id));
             router.navigate('/week9/cart');

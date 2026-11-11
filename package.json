@@ -14,7 +14,9 @@
     "export:web": "expo export --platform web",
     "export:android": "expo export --platform android --output-dir dist-android",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "api:start": "node --env-file-if-exists=.env.server.local --import tsx api/start.ts",
+    "mockaroo:prepare": "tsx scripts/prepare-mockaroo.ts"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^2.14.0",

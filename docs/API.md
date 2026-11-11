@@ -14,8 +14,8 @@ Endpoint trong `EXPO_PUBLIC_MOVIES_API_URL` phải hỗ trợ `GET`, trả về 
 ```
 
 - `id`: chuỗi không rỗng hoặc số; sau chuẩn hóa phải duy nhất.
-- `title`, `genre`: chuỗi.
-- `year`: số nguyên.
+- `title`, `genre`: chuỗi không rỗng.
+- `year`: số nguyên từ 1 đến 9999.
 - `rating`: số hữu hạn từ 0 đến 10.
 
 ## Tours — tuần 8
@@ -23,7 +23,8 @@ Endpoint trong `EXPO_PUBLIC_MOVIES_API_URL` phải hỗ trợ `GET`, trả về 
 Endpoint trong `EXPO_PUBLIC_TOURS_API_URL` hỗ trợ:
 
 - `GET /tours` → mảng tour.
-- `PUT /tours/:id`, body `{"isFavorite": true}` → JSON của bản ghi đã cập nhật. API cần giữ các trường còn lại khi cập nhật yêu thích.
+- `PUT /tours/:id`, body `{"isFavorite": true}` → JSON xác nhận hoặc HTTP 204. API cần giữ các trường còn lại khi cập nhật yêu thích.
+- Nếu route PUT khác GET (ví dụ `/tours/:id.json`), đặt URL có `:id` vào `EXPO_PUBLIC_TOUR_FAVORITE_API_URL`.
 
 ```json
 [
@@ -50,20 +51,19 @@ Endpoint trong `EXPO_PUBLIC_TOURS_API_URL` hỗ trợ:
 
 - `price`: số hữu hạn, không âm; đơn vị VND.
 - `days`: số nguyên dương.
-- `departure`: chuỗi ngày hợp lệ; khuyến nghị `YYYY-MM-DD`.
+- `departure`: ngày lịch hợp lệ, đúng định dạng `YYYY-MM-DD`.
 - `isFavorite`: boolean, không dùng chuỗi `"true"`.
 - `id`: duy nhất; `name`, `city`: chuỗi.
 
-## Thiết lập bằng MockAPI
+## Thiết lập bằng Mockaroo
 
-1. Tạo project trên tài khoản của bạn.
-2. Tạo resource `movies` và `tours` có các trường đúng schema trên.
-3. Nhập dữ liệu JSON minh họa, kiểm tra URL GET trả về mảng.
-4. Điền hai URL resource vào `.env` theo `.env.example`.
-5. Khởi động lại Expo, vào tuần 6/8. Dòng nguồn dữ liệu phải hiển thị API riêng.
-6. Bấm yêu thích tour, tải lại rồi kiểm tra trạng thái còn được lưu ở máy chủ.
+Xem [hướng dẫn tạo ba route và chạy server trung gian](MOCKAROO.md). Các handler và dữ liệu được đặt trong thư mục [mockaroo](../mockaroo).
 
-Khi chạy web, API cần cho phép CORS cho GET và PUT với `Content-Type: application/json`. Các biến `EXPO_PUBLIC_*` chỉ dành cho thông tin công khai.
+Mockaroo yêu cầu API key trong query hoặc header `X-API-Key`; ở đây server gửi header để khóa không nằm trong ứng dụng. [Tài liệu Mockaroo](https://www.mockaroo.com/docs).
+
+Server trung gian cung cấp `GET /movies`, `GET /tours`, `PUT /tours/:id`. Mockaroo mô phỏng phản hồi PUT, còn server giữ phần thay đổi yêu thích trong bộ nhớ. Khởi động lại server sẽ đặt lại các thay đổi này. Dữ liệu phim và tour không thay đổi id giữa các lượt tải.
+
+Khi chạy web, API cần cho phép CORS cho GET và PUT với `Content-Type: application/json`. Các biến `EXPO_PUBLIC_*` chỉ dành cho URL công khai. Khóa Mockaroo chỉ đặt trong `.env.server.local`, không đặt vào biến `EXPO_PUBLIC_*`.
 
 ## Xử lý lỗi
 

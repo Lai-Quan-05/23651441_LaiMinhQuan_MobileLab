@@ -9,6 +9,7 @@ import { addBook, selectCartCount } from '../../../week9/store';
 export default function ReduxBooks() {
   const dispatch = useAppDispatch();
   const count = useAppSelector(selectCartCount);
+  const cartLines = useAppSelector((state) => state.cart.lines);
   const [query, setQuery] = useState('');
   const [message, setMessage] = useState('');
   const filtered = books.filter((book) =>
@@ -54,6 +55,7 @@ export default function ReduxBooks() {
           />
           <Button
             title={`Thêm ${book.title}`}
+            disabled={cartLines.some((line) => line.bookId === book.id && line.quantity >= 99)}
             onPress={() => {
               dispatch(addBook(book.id));
               setMessage(`Đã thêm “${book.title}” vào giỏ.`);

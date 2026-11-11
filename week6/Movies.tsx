@@ -19,40 +19,51 @@ export default function Movies() {
   const [error, setError] = useState('');
   const [grid, setGrid] = useState(false);
   const [selected, setSelected] = useState<Movie>();
-  const sequence = useRef(0);
-  const load = useCallback(async (refresh = false) => {
-    const id = ++sequence.current;
-    setError('');
-    setRefreshing(refresh);
-    setLoading(!refresh);
+  const lifecycle = useRef({
+    mounted: false,
+    busy: false,
+    controller: null as AbortController | null,
+  });
+  const read = useCallback(async (controller: AbortController) => {
+    const life = lifecycle.current;
     try {
-      const data = await getMovies();
-      if (id === sequence.current) setMovies(data);
+      const data = await getMovies(controller.signal);
+      if (life.mounted && life.controller === controller) setMovies(data);
     } catch (cause) {
-      if (id === sequence.current) setError(errorMessage(cause));
+      if (life.mounted && life.controller === controller) setError(errorMessage(cause));
     } finally {
-      if (id === sequence.current) {
+      if (life.mounted && life.controller === controller) {
         setLoading(false);
         setRefreshing(false);
+        life.busy = false;
       }
     }
   }, []);
+  const load = useCallback(
+    (refresh = false) => {
+      const life = lifecycle.current;
+      if (!life.mounted || life.busy) return;
+      life.busy = true;
+      life.controller = new AbortController();
+      setError('');
+      setRefreshing(refresh);
+      setLoading(!refresh);
+      void read(life.controller);
+    },
+    [read],
+  );
   useEffect(() => {
-    let active = true;
-    void getMovies()
-      .then((data) => {
-        if (active) setMovies(data);
-      })
-      .catch((cause) => {
-        if (active) setError(errorMessage(cause));
-      })
-      .finally(() => {
-        if (active) setLoading(false);
-      });
+    const life = lifecycle.current;
+    life.mounted = true;
+    life.busy = true;
+    life.controller = new AbortController();
+    void read(life.controller);
     return () => {
-      active = false;
+      life.mounted = false;
+      life.busy = false;
+      life.controller?.abort();
     };
-  }, []);
+  }, [read]);
   return (
     <Page scroll={false}>
       <FlatList
@@ -66,7 +77,7 @@ export default function Movies() {
         refreshControl={
           <RefreshControl
             refreshing={refreshing}
-            enabled={!loading}
+            enabled={!loading && !refreshing}
             onRefresh={() => {
               if (!loading) void load(true);
             }}

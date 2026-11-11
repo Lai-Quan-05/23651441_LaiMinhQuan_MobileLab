@@ -1,5 +1,5 @@
 import { configureStore, createSelector, createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { books, type Book } from '../src/data/catalog';
+import { books } from '../src/data/catalog';
 
 type CartLine = { bookId: string; quantity: number };
 export type CartState = { lines: CartLine[] };
@@ -71,7 +71,7 @@ export type AppDispatch = typeof store.dispatch;
 export const selectCart = createSelector([(state: RootState) => state.cart.lines], (lines) =>
   lines.flatMap((line) => {
     const book = books.find((book) => book.id === line.bookId);
-    return book ? [{ book: book as Book, quantity: line.quantity }] : [];
+    return book ? [{ book, quantity: line.quantity }] : [];
   }),
 );
 export const selectCartCount = createSelector([selectCart], (lines) =>

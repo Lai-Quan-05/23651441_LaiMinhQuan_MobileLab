@@ -8,7 +8,7 @@ import { useBikeCart } from '../../../week7/cart';
 export default function BikeDetail() {
   const { id } = useLocalSearchParams<{ id: string }>();
   const bike = bikes.find((item) => item.id === id);
-  const { dispatch } = useBikeCart();
+  const { items, dispatch } = useBikeCart();
   const [added, setAdded] = useState(false);
   if (!bike)
     return (
@@ -27,6 +27,7 @@ export default function BikeDetail() {
         <Text style={s.text}>{bike.description}</Text>
         <Button
           title="Thêm vào giỏ hàng"
+          disabled={(items[bike.id] ?? 0) >= 99}
           onPress={() => {
             dispatch({ type: 'add', id: bike.id });
             setAdded(true);
