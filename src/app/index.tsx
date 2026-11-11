@@ -33,10 +33,16 @@ const weeks = [
     topic: 'Counter, tài khoản & giỏ hàng sách',
     path: '/week9',
   },
-  { week: 10, title: 'Chờ đề bài', topic: 'Chưa có nội dung bài tập' },
+  {
+    week: 10,
+    title: 'Bài viết & Async Thunk',
+    topic: 'Thêm bài bằng POST & CRUD với createAsyncThunk',
+    path: '/week10',
+  },
 ] as const;
 
 export default function Home() {
+  const readyCount = weeks.filter((week) => 'path' in week).length;
   return (
     <SafeAreaView style={s.page} edges={['top', 'left', 'right']}>
       <Page>
@@ -51,8 +57,13 @@ export default function Home() {
             Lại Minh Quân · 23651441{'\n'}Lớp DHKTPM19ATT
           </Text>
           <View style={[s.row, { marginTop: 8 }]}>
-            <Text style={{ color: 'white', fontWeight: '700' }}>08 tuần có bài</Text>
-            <Text style={{ color: '#b5cdd3' }}> / 02 tuần chờ đề</Text>
+            <Text style={{ color: 'white', fontWeight: '700' }}>
+              {String(readyCount).padStart(2, '0')} tuần có bài
+            </Text>
+            <Text style={{ color: '#b5cdd3' }}>
+              {' '}
+              / {String(weeks.length - readyCount).padStart(2, '0')} tuần chờ đề
+            </Text>
           </View>
         </View>
         <Text style={s.heading}>Chọn một bài thực hành</Text>

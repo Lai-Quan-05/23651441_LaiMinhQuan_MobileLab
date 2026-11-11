@@ -4,8 +4,8 @@ Các bước dưới đây là hướng dẫn kiểm tra thủ công. Kết qu�
 
 ## Trang chủ
 
-- Mở ứng dụng, kiểm tra tên/MSSV/lớp và 8 tuần có nút vào bài.
-- Tuần 4 và 10 phải hiện chờ đề, không có bài tự gán.
+- Mở ứng dụng, kiểm tra tên/MSSV/lớp và 9 tuần có nút vào bài.
+- Tuần 4 hiện chờ đề.
 - Vào một tuần rồi dùng nút back để trở về.
 
 ## Tuần 1
@@ -64,3 +64,14 @@ Các bước dưới đây là hướng dẫn kiểm tra thủ công. Kết qu�
 - Tài khoản: email sai phải báo lỗi; nhập tên/email giả đúng định dạng, đăng nhập rồi đăng xuất.
 - Đặt hàng: biểu mẫu thiếu/sai phải báo lỗi; nhập dữ liệu mẫu đúng để xem xác nhận và giỏ được xóa.
 - Tải lại app: state phiên được đặt lại theo thiết kế.
+
+## Tuần 10
+
+- Bài 1: nhập tiêu đề và nội dung, thêm hai lần. Kết quả mới nằm đầu danh sách; hai bài được giữ riêng dù cùng id API `101`.
+- Trong lúc gửi, nút lưu bị khóa. API lỗi thì báo lỗi và giữ form để thử lại.
+- Bài 2: tải 10 bài, chọn một bài có sẵn để sửa, hủy sửa rồi sửa thành công.
+- Xóa một bài có sẵn: chỉ dòng đó hiển thị “Đang xóa...”; thất bại thì dòng vẫn còn và nút được mở khóa.
+- Thêm hai bài mới, sửa một bài và xóa bài còn lại: không thao tác nhầm do trùng id API.
+- Bài mới từ POST được sửa/xóa tại máy, còn bài gốc từ GET dùng PUT/DELETE qua API.
+- Tải lại dữ liệu gốc: danh sách CRUD trở về dữ liệu API.
+- Chuyển qua lại hai bài: dữ liệu của mỗi bài độc lập, không mất khi đổi bài trong cùng phiên.
